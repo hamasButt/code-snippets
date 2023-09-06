@@ -39,7 +39,7 @@ const startTimer = (intervals, setDay, setTimerHours, setTimerMinutes, setTimerS
         }
     }, 1000)
 }
-
+// IN Next js new ver update query params like this
 export const UpdateQueryParams = (pathName, paramQuery, value) => {
     // now you got a read/write object
     const current = new URLSearchParams(Array.from(searchParams.entries())); // -> has to use this form
@@ -52,4 +52,15 @@ export const UpdateQueryParams = (pathName, paramQuery, value) => {
     router.push(`${pathName}${query}`);
   };
 
-export default startTimer
+
+// unique array generator to remove duplicate arrays
+ function commonUniqueArrayGenerator(arr) {
+    const uniqueArr = arr?.reduce((unique, item) => {
+      const found = unique.find((obj) => obj.value === item.value);
+      if (!found) {
+        unique.push(item);
+      }
+      return unique;
+    }, []);
+    return uniqueArr;
+  }
