@@ -5,6 +5,19 @@
     let form1 = serializeForm(form)
     console.log(form1)
   }
+// used to edit the values
+ function populateFormWithUserData() {
+    const form = document.getElementById('myForm');
+
+    for (const key in userItem) {
+      if (userItem.hasOwnProperty(key)) {
+        const input = form.querySelector(`[name="${key}"]`);
+        if (input) {
+          input.value = userItem[key];
+        }
+      }
+    }
+  }
   function serializeForm(form) {
     const data = Array.from(form.elements).map(element => {
       if (element.name) {
