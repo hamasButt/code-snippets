@@ -1,12 +1,18 @@
-// SERIALIZING A FORM TO GET THE EVENT ELEMENTS INSIDE THE FORM.
-function serializeForm(form) {
+// SERIALIZING A FORM TO GET THE EVENT ELEMENTS INSIDE THE FORM.AND HAVE TO USE THE SUBMIT HANDLER LIKE THIS
+  function submitHandler(e) {
+    e.preventDefault();
+    const form = document.getElementById('myForm')
+    let form1 = serializeForm(form)
+    console.log(form1)
+  }
+  function serializeForm(form) {
     const data = Array.from(form.elements).map(element => {
-        if (element.name) {
-            return [element.name, element.value]
-        }
-    }).filter(val=>val!==undefined)
+      if (element.name) {
+        return [element.name, element.value]
+      }
+    }).filter(val => val !== undefined)
     return Object.fromEntries(data)
-}
+  }
 
 // COUNTDOWN 
 const startTimer = (intervals, setDay, setTimerHours, setTimerMinutes, setTimerSecs, lockingDate,) => {
