@@ -83,3 +83,11 @@ export const UpdateQueryParams = (pathName, paramQuery, value) => {
     }, []);
     return uniqueArr;
   }
+
+// for index base open and close funtion if one is open then other should close and toggle too
+ function toggleDropdown2(id) {
+    const updatedDropdownState = isDropdownOpen.map((isOpen, index) =>
+        index === id ? !isOpen : false
+    );
+    setIsDropdownOpen(updatedDropdownState);
+  }
